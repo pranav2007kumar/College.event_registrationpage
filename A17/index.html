@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANOKHA 2026 | National Fest</title>
+    <meta name="description" content="ANOKHA 2026 College Event Registration System">
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="navbar glass-effect">
+        <div class="logo">ANOKHA<span class="highlight">26</span></div>
+        <nav>
+            <a href="#events">Explore</a>
+            <a href="#register" class="btn-primary">Register</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1 class="animate-up">Experience the Future.</h1>
+                <p class="animate-up delay-1">National Tech, Cultural & Sports Fest Registration</p>
+                <div class="search-bar animate-up delay-2 glass-effect">
+                    <input type="text" id="searchInput" placeholder="Search events (e.g., Hackathon, Dance)..."
+                        aria-label="Search Events">
+                    <select id="categoryFilter" aria-label="Filter by Category">
+                        <option value="all">All Categories</option>
+                        <option value="technical">Technical</option>
+                        <option value="cultural">Cultural</option>
+                        <option value="sports">Sports</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section id="events" class="events-section">
+            <h2 class="section-title">Discover Events</h2>
+            <div class="event-grid" id="eventGrid">
+                <!-- Events rendered via JS -->
+            </div>
+        </section>
+<!--till here tharun-->
+<!--from here pranav-->
+        <section id="register" class="registration-wrapper">
+            <h2 class="section-title">Join the Fest</h2>
+            <div class="registration-container glass-effect">
+                <div class="registration-form-panel">
+                    <h3>Registration Form</h3>
+                    <form id="registrationForm">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="department">Department</label>
+                            <select id="department" required>
+                                <option value="" disabled selected>Select your department</option>
+                                <option value="CSE">Computer Science & Eng. (CSE)</option>
+                                <option value="AIE">Artificial Intelligence & Eng. (AIE)</option>
+                                <option value="AIDS">AI & Data Science (AIDS)</option>
+                                <option value="CYS">Cyber Security (CYS)</option>
+                                <option value="ECE">Electronics & Communication Eng. (ECE)</option>
+                                <option value="EEE">Electrical & Electronics Eng. (EEE)</option>
+                                <option value="MECH">Mechanical Engineering (MECH)</option>
+                                <option value="AEE">Aerospace Engineering (AEE)</option>
+                                <option value="CCE">Computer & Comm. Eng. (CCE)</option>
+                                <option value="CHE">Chemical Engineering (CHE)</option>
+                                <option value="CIVIL">Civil Engineering (CIVIL)</option>
+                                <option value="AS">Arts & Sciences (AS)</option>
+                                <option value="OTHERS">Others</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Selected Events</label>
+                            <div class="selected-events-list scrollbar" id="selectedEventsList">
+                                <!-- Populated dynamically by JS -->
+                                <p class="empty-state" style="margin: 0; padding: 1rem; font-size: 0.9rem;">No events
+                                    selected yet. Browse events and click "Register Now".</p>
+                            </div>
+                        </div>
+
+                        <div class="form-footer">
+                            <div class="fee-summary">
+                                <span>Total Fee</span>
+                                <span id="totalFee" class="price gradient-text">₹0</span>
+                            </div>
+                            <button type="submit" class="btn-submit">Register Now</button>
+                        </div>
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
+                </div>
+<!--till here pranav-->
+<!--from here rajdeep-->
+                <div class="registration-feed-panel">
+                    <h3>Live Activity Feed</h3>
+                    <p class="feed-desc">Recent successful registrations</p>
+                    <div class="table-container scrollbar">
+                        <table class="feed-table">
+                            <thead>
+                                <tr>
+                                    <th>Participant</th>
+                                    <th>Dept</th>
+                                    <th>Events Opted</th>
+                                </tr>
+                            </thead>
+                            <tbody id="feedTableBody">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                        <div id="emptyFeedMessage" class="empty-state">No registrations yet. Be the first!</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+<!--till here rajdeep-->
+<!--from here ajay-->
+    <!-- Event Detail Modal -->
+    <div class="modal-backdrop" id="eventModal" aria-hidden="true">
+        <div class="modal-content glass-effect scale-in">
+            <button class="close-btn" id="closeModal" aria-label="Close Modal">&times;</button>
+            <div class="modal-header">
+                <span class="badge" id="modalCategory">Category</span>
+                <h3 id="modalTitle">Event Title</h3>
+                <div id="modalVenue" class="modal-venue"></div>
+            </div>
+            <p id="modalDesc" class="modal-desc">Detailed info about the event.</p>
+            <div class="modal-instructions-container scrollbar">
+                <h4>Event Instructions & Flow:</h4>
+                <ul id="modalInstructionsList" class="modal-instructions">
+                    <!-- JavaScript injected instructions go here -->
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <span class="price-tag" id="modalPrice">₹ 0</span>
+                <button class="btn-primary" id="modalRegisterBtn">Add to Form</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Overlay Screen -->
+    <div id="paymentPageFullscreen" class="payment-fullscreen-overlay" style="display: none;">
+        <div class="payment-card glass-effect scale-in">
+            <h2>Complete Payment</h2>
+            <p style="color:var(--text-muted); margin-bottom: 1rem;">You are about to register for your selected events.
+            </p>
+
+            <div class="payment-amount-box" style="margin-bottom: 1.5rem; font-size: 1.2rem;">
+                <span>Total Amount:</span>
+                <span id="paymentAmountFinal" class="price gradient-text"
+                    style="font-weight: bold; font-size: 1.5rem;">₹0</span>
+            </div>
+
+            <div class="qr-wrapper" style="margin-bottom: 2rem;">
+                <img src="payment_qr.png" alt="Scan to pay" class="qr-code-large"
+                    style="width: 250px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border: 4px solid white;">
+                <p style="margin-top: 0.5rem; color:var(--text-muted); font-style: italic;">Scan with PhonePe or any UPI
+                    App</p>
+            </div>
+
+            <div class="payment-actions" style="display: flex; gap: 1rem; justify-content: center;">
+                <button type="button" class="btn-cancel" onclick="cancelPayment()"
+                    style="padding: 0.8rem 2rem; border-radius: 50px; border: none; background: #e2e8f0; color: var(--text-main); cursor: pointer; font-weight: bold; transition: 0.3s;">Cancel</button>
+                <button type="button" class="btn-confirm" onclick="confirmRegistration()"
+                    style="padding: 0.8rem 2rem; border-radius: 50px; border: none; background: var(--primary); color: white; cursor: pointer; font-weight: bold; transition: 0.3s; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);">I
+                    Have Paid</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+<!--till here ajay-->
