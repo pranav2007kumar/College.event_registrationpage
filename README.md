@@ -15,15 +15,15 @@ This project simulates the official registration gateway for Anokha 2026. It all
 
 To demonstrate mastery over both core web technologies and modern frameworks, this repository is split into two complete implementations:
 
-1. **The Native Approach (`/vanilla_html`)**: Pure HTML, CSS, and Vanilla JavaScript.
+1. **The Native Approach (`/event_page`)**: Pure HTML, CSS, and Vanilla JavaScript.
 2. **The React Approach (`App.tsx`)**: Component-driven architecture with React and TypeScript.
 
 ---
 
 ## ✨ Core Features
 
-### 🌟 Native HTML/CSS/JS Platform (`/vanilla_html`)
-Located in the `vanilla_html` directory, this is a dependency-free, highly optimized static web application.
+### 🌟 Native HTML/CSS/JS Platform (`/event_page`)
+Located in the `event_page` directory, this is a dependency-free, highly optimized static web application.
 * **Modern Glassmorphism UI**: Beautiful, frosted-glass overlay effects utilizing modern CSS backdrops (`backdrop-filter`).
 * **Smooth Typography**: Driven by Google Fonts (*Space Grotesk* & *Outfit*).
 * **Scroll Animations**: Custom CSS intersection animations (`animate-up`) that load elements gracefully as the user scrolls.
@@ -58,7 +58,7 @@ This version requires no installation, transpilers, or build steps.
    ```
 2. Navigate into the native directory:
    ```bash
-   cd College.event_registrationpage/vanilla_html
+   cd College.event_registrationpage/event_page
    ```
 3. Start a local server:
    ```bash
@@ -77,7 +77,7 @@ This version requires no installation, transpilers, or build steps.
 
 ## 📄 Documentation & Reports
 For an in-depth breakdown of the wireframing, color theory, typography choices, and heuristic evaluations, please refer to the project report included in this repository:
-* 📘 `vanilla_html/Uid_report.docx`
+* 📘 `event_page/Uid_report.docx`
 * 📘 `UID.docx`
 
 ---
