@@ -75,11 +75,5 @@ This version requires no installation, transpilers, or build steps.
 
 ---
 
-## 📄 Documentation & Reports
-For an in-depth breakdown of the wireframing, color theory, typography choices, and heuristic evaluations, please refer to the project report included in this repository:
-* 📘 `event_page/Uid_report.docx`
-* 📘 `UID.docx`
-
----
-
 *Developed for 23AID215 - User Interface Design.*
+
